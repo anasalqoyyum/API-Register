@@ -7,6 +7,7 @@ const User = require("./models/user");
 const { auth } = require("./middlewares/auth");
 const db = require("./config/config").get(process.env.NODE_ENV);
 
+const app = express();
 const corsOptions = {
   origin: "*",
   allowedHeaders: "*",
@@ -14,8 +15,6 @@ const corsOptions = {
   method: "GET ,HEAD ,PUT ,PATCH, POST, DELETE, OPTIONS",
 };
 app.use(cors(corsOptions));
-
-const app = express();
 // app use
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
