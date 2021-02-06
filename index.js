@@ -1,10 +1,19 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyparser = require("body-parser");
+const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const User = require("./models/user");
 const { auth } = require("./middlewares/auth");
 const db = require("./config/config").get(process.env.NODE_ENV);
+
+const corsOptions = {
+  origin: "*",
+  allowedHeaders: "*",
+  optionsSuccessStatus: 200,
+  method: "GET ,HEAD ,PUT ,PATCH, POST, DELETE, OPTIONS",
+};
+app.use(cors(corsOptions));
 
 const app = express();
 // app use
@@ -111,7 +120,7 @@ app.get("/", function (req, res) {
 });
 
 app.get("/api/users", auth, function (req, res) {
-  User.find({}, function (err,user) {
+  User.find({}, function (err, user) {
     if (err) {
       res.send("Error");
       next();
