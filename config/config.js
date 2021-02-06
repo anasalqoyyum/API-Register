@@ -5,11 +5,11 @@ const config={
     },
     default : {
         SECRET: 'mysecretkey',
-        DATABASE: 'mongodb+srv://admin:g6iF7OL4nyuXy5Ry@mtf-backend.8n8pt.mongodb.net/mtf-backend?retryWrites=true&w=majority'
+        DATABASE: 'mongodb://localhost/mtf-backend'
     }
 }
 
 
 exports.get = function get(env){
-    return config[env] || config.default
+    return config[env] || config.production
 }
