@@ -5,7 +5,7 @@ const config={
     },
     default : {
         SECRET: 'mysecretkey',
-        DATABASE: 'mongodb://localhost/mtf-backend'
+        DATABASE: 'mongodb+srv://admin:g6iF7OL4nyuXy5Ry@mtf-backend.8n8pt.mongodb.net/mtf-backend?retryWrites=true&w=majority'
     }
 }
 
